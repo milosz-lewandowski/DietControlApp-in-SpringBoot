@@ -1,8 +1,7 @@
-package pl.coderslab.entity;
+package pl.dietapp.demo.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity

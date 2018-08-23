@@ -1,4 +1,4 @@
-package pl.coderslab.entity;
+package pl.dietapp.demo.entity;
 
 import javax.persistence.*;
 
