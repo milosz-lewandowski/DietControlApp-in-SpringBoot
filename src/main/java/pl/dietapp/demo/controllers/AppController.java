@@ -51,7 +51,7 @@ public class AppController {
 
     @RequestMapping("/")
     public String start(){
-        return "start";
+        return "home";
     }
 
     @GetMapping("/products")
