@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of products:</title>
+    <meta http-equiv="Content-Type"	content="text/html;	charset=UTF-8"	/>
+</head>
+<body>
+<p th:text="'List of products:'"/>
+<table>
+    <tr>
+        <th>name:</th>
+        <th>id:</th>
+        <th>proteins:</th>
+        <th>complex carbohydrates:</th>
+        <th>simple carbohydrates:</th>
+        <th>fat:</th>
+        <th>kcal:</th>
+        <th>for:</th>
+    </tr>
+    <tr th:each="product: ${productsListAtr}">
+        <td th:text="${product.getName()}"></td>
+        <td th:text="${product.getId()}"></td>
+        <td th:text="${product.getProteins()}"></td>
+        <td th:text="${product.getComplexCarbo()}"></td>
+        <td th:text="${product.getSimpleCarbo()}"></td>
+        <td th:text="${product.getFat()}"></td>
+        <td th:text="${product.getKcal()}"></td>
+        <td th:switch="${product.getIsCountable()}">
+            <span th:case="Y" th:text="' / one head'"></span>
+            <span th:case="N" th:text="' / 100g'"></span>
+            <span th:case="*" th:text="' / not defined'"></span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

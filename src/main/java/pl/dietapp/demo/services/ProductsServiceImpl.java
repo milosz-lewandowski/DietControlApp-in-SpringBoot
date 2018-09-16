@@ -18,4 +18,9 @@ public class ProductsServiceImpl implements ProductsService {
         return productRepository.findAll();
     }
 
+    @Override
+    public void saveProduct(Product product) {
+        product.setKcal(product.countKcal());
+        productRepository.save(product);
+    }
 }

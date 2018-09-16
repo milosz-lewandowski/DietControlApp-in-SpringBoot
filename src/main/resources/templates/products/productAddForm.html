@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>productAddForm</title>
+    <meta http-equiv="Content-Type"	content="text/html;	charset=UTF-8"	/>
+</head>
+<body>
+<h2>Add new product:</h2>
+<form th:action="@{/products/add}" th:object="${product}" method="post">
+    <p>name: <input type="text" th:field="*{name}"></p>
+    <p>proteins: <input type="number" th:field="*{proteins}"></p>
+    <p>simple carbohydrates: <input type="number" th:field="*{simpleCarbo}"></p>
+    <p>complx carbohydrates: <input type="number" th:field="*{complexCarbo}"></p>
+    <p>fat: <input type="number" th:field="*{fat}"></p>
+    <p>dietary fiber: <input type="number" th:field="*{dietaryFiber}"></p>
+    <p>values per one head <input type="radio" th:field="*{isCountable}" value="Y">
+        values per 100g <input type="radio" th:field="*{isCountable}" value="N"></p>
+    <p>categories - to do.</p>
+    <!--<form:checkboxes items="${categories}" path="categories" itemValue="id" itemLabel="name" />-->
+    <p><input	type="submit"	value="Submit"	/></p>
+</form>
+</body>
+</html>
+
+<!--<div>Select category:</div>-->

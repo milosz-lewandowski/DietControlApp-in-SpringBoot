@@ -23,6 +23,14 @@ public class Product {
     private int kcal;
 
     public int getKcal() {
+        return kcal;
+    }
+
+    public void setKcal(int kcal) {
+        this.kcal = kcal;
+    }
+
+    public int countKcal() {
         this.kcal = fat * 9 + proteins * 4 + simpleCarbo * 4 + complexCarbo * 4 + dietaryFiber * 2;
         return kcal;
     }
