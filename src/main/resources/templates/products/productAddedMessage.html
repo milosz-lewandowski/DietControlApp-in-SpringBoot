@@ -5,9 +5,12 @@
     <meta http-equiv="Content-Type"	content="text/html;	charset=UTF-8"	/>
 </head>
 <body>
+<div th:replace="fragments/menu :: panelmenu"></div>
+<div th:replace="fragments/mealMenu :: amealmenu"></div>
+<div style="clear: both"></div>
     <h3 th:text="|Added product:  ${product.getName()} which has:
     ${product.getKcal()} kcal|"></h3>
-    <div th:href="@{/products/list}">go back to list of products</div>
-    <div th:href="@{/products/add}">add another product</div>
+    <div th:href="@{/products/list}" th:text="'go back to list of products'"></div>
+    <div th:href="@{/products/add}" th:text="'add another product'"></div>
 </body>
 </html>

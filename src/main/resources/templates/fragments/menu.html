@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>title</title>
+    <meta http-equiv="Content-Type"	content="text/html;	charset=UTF-8"	/>
+</head>
+<body>
+<div th:fragment="panelmenu" id="menu" style=" display: block; width: 50%; height: 25%; float: left; background-color: greenyellow">
+    <a th:href="@{/products/list}" th:text="'Add product'"></a><br>
+    <a th:href="@{/products/add}" th:text="'Show all products'"></a><br>
+    <a href="@{/categorieslist}">Show all categories</a><br>
+    <a href="@{/search}">Search products</a><br>
+    <a href="@{/addmeal}">Add new meal</a><br>
+    <a href="@{/mealshistory}">Show List of meals</a><br>
+</div>
+</body>
+</html>

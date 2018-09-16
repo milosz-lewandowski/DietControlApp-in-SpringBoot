@@ -5,6 +5,9 @@
     <meta http-equiv="Content-Type"	content="text/html;	charset=UTF-8"	/>
 </head>
 <body>
+<div th:replace="fragments/menu :: panelmenu"></div>
+<div th:replace="fragments/mealMenu :: amealmenu"></div>
+<div style="clear: both"></div>
 <h2>Add new product:</h2>
 <form th:action="@{/products/add}" th:object="${product}" method="post">
     <p>name: <input type="text" th:field="*{name}"></p>
