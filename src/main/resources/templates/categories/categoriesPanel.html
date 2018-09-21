@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categories Panel</title>
+    <meta http-equiv="Content-Type"	content="text/html;	charset=UTF-8"	/>
+</head>
+<body>
+    <div th:replace="fragments/menu :: panelmenu"></div>
+    <div th:replace="fragments/mealMenu :: amealmenu"></div>
+    <div style="clear: both"></div>
+    <table>
+        <tr th:each="cat: ${categoriesList}">
+            <td th:text="${cat.getId()}"></td>
+            <td th:text="${cat.name}"></td>
+            <!--<td th:href="edit-name"></td>-->
+            <!--<td th:href="delate a category"></td>-->
+        </tr>
+    </table>
+<form th:action="@{/category/panel}" th:object="${newCategory}" th:method="post">
+    <p>enter a new category name<input th:type="text"></p>
+</form>
+</body>
+</html>
