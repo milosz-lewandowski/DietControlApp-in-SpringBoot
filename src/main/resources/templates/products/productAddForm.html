@@ -16,10 +16,12 @@
     <p>complx carbohydrates: <input type="number" th:field="*{complexCarbo}"></p>
     <p>fat: <input type="number" th:field="*{fat}"></p>
     <p>dietary fiber: <input type="number" th:field="*{dietaryFiber}"></p>
-    <p>values per one head <input type="radio" th:field="*{isCountable}" value="Y">
-        values per 100g <input type="radio" th:field="*{isCountable}" value="N"></p>
-    <p>categories - to do.</p>
-    <!--<form:checkboxes items="${categories}" path="categories" itemValue="id" itemLabel="name" />-->
+    <p> <input type="radio" th:field="*{isCountable}" value="Y"> values per one head
+        <input type="radio" th:field="*{isCountable}" value="N"> values per 100g </p>
+    <th:block th:each="cat : ${categoriesList}">
+        <input type="checkbox" th:field="*{categories}" th:value="${cat.id}"/>
+        <label th:text="${cat.name}"></label>
+    </th:block>
     <p><input	type="submit"	value="Submit"	/></p>
 </form>
 </body>

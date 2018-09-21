@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.dietapp.demo.entity.Product;
+import pl.dietapp.demo.services.CategoriesService;
 import pl.dietapp.demo.services.ProductsServiceImpl;
 
 @Controller
@@ -15,6 +16,8 @@ public class ProductController {
 
     @Autowired
     ProductsServiceImpl productsService;
+    @Autowired
+    CategoriesService categoriesService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String showList(Model model){
@@ -25,6 +28,7 @@ public class ProductController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addProductForm(Model model){
         model.addAttribute("product", new Product());
+        model.addAttribute("categoriesList", categoriesService.getCategories());
         return "products/productAddForm";
     }
 
