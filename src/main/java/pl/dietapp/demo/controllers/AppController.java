@@ -19,7 +19,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Controller
-@SessionAttributes("actMeal")
+//@SessionAttributes("actMeal")
 public class AppController {
     @Autowired
     ProductRepository productRepository;
@@ -43,94 +43,94 @@ public class AppController {
 //        return actProduct;
 //    }
 
-    @ModelAttribute("actProductsList")
-    public Collection<ProductMeal> actProducts(){
-        List<ProductMeal> actProductsList = new ArrayList<>();
-        return actProductsList;
-    }
+//    @ModelAttribute("actProductsList")
+//    public Collection<ProductMeal> actProducts(){
+//        List<ProductMeal> actProductsList = new ArrayList<>();
+//        return actProductsList;
+//    }
 
     @RequestMapping("/")
     public String start(){
         return "home";
     }
 
-    @GetMapping("/products")
-    public String ProductsList(Model model){
-        List<Product> list = productRepository.findAll();
-        model.addAttribute("list", list);
-        return "productsList";
-    }
-
-    @GetMapping("/categorieslist")
-    public String categorieslist(){
-        return "categoriesList";
-    }
-
-    @RequestMapping(value = "/addproduct", method = RequestMethod.GET)
-    public String addProduct(Model model){
-        model.addAttribute("product", new Product());
-        return "addProduct";
-    }
-
-    @RequestMapping(value = "/addproduct", method = RequestMethod.POST)
-    public String addedProduct(@ModelAttribute Product product, Model model){
-
-        productRepository.save(product);
-        model.addAttribute("product", product);
-        System.out.println(product);
-        return "addedProduct";
-
-    }
-
-    @RequestMapping("/search")
-    public String chooseCategories(Model model){
-        List<Category> catlist = categoryRepository.findAll();
-        model.addAttribute("catlist", catlist);
-        return "searchProducts";
-    }
-
-    @RequestMapping("/choosen")
-    public String productsFromCategories(@ModelAttribute Category choosen, Model model){
-        List<Product> pList = productRepository.findAllByCategories(choosen);
-        model.addAttribute("list", pList);
-        return "productsList";
-    }
-
-    @RequestMapping("/query")
-    public String productsByQuery(@ModelAttribute String squery, Model model){
-        List<Product> qList = productRepository.findProductsByNameIsLike(squery);
-        model.addAttribute("List", qList);
-        return "productsList";
-    }
-    @RequestMapping(value = "/addmeal", method = RequestMethod.GET)
-    public String addMeal(Model model){
-        Meal actMeal = new Meal();
-        actMeal.setDate( new Timestamp(System.currentTimeMillis()));
-        model.addAttribute("actMeal", actMeal);
-        return "addMeal";
-    }
-
-    @RequestMapping(value = "/addmeal", method = RequestMethod.POST)
-    public String added(@ModelAttribute Meal actMeal, Model model){
-        actMeal.setDate( new Timestamp(System.currentTimeMillis()));
-        model.addAttribute("actMeal", actMeal);
-        return "addMeal";
-    }
-
-    @RequestMapping("/addtomeallist")
-    public String addPMToMeal(@ModelAttribute ProductMeal actProductMeal, @RequestParam Product product,
-                              @ModelAttribute Meal actMeal, @ModelAttribute List<ProductMeal> actProductsList,
-                              Model model){
-        actProductMeal.setMeal_id(actMeal.getId());
-        actProductMeal.setProduct(product);
-        actProductsList.add(actProductMeal);
-        model.addAttribute("actProductMeal", actProductMeal);
-        return "productList";
-    }
-
-    @RequestMapping("/mealshistory")
-    public String mealslist(Model model){
-        model.addAttribute("mealshistory", mealRepository.findAll());
-        return "mealshistory";
-    }
+//    @GetMapping("/products")
+//    public String ProductsList(Model model){
+//        List<Product> list = productRepository.findAll();
+//        model.addAttribute("list", list);
+//        return "productsList";
+//    }
+//
+//    @GetMapping("/categorieslist")
+//    public String categorieslist(){
+//        return "categoriesList";
+//    }
+//
+//    @RequestMapping(value = "/addproduct", method = RequestMethod.GET)
+//    public String addProduct(Model model){
+//        model.addAttribute("product", new Product());
+//        return "addProduct";
+//    }
+//
+//    @RequestMapping(value = "/addproduct", method = RequestMethod.POST)
+//    public String addedProduct(@ModelAttribute Product product, Model model){
+//
+//        productRepository.save(product);
+//        model.addAttribute("product", product);
+//        System.out.println(product);
+//        return "addedProduct";
+//
+//    }
+//
+//    @RequestMapping("/search")
+//    public String chooseCategories(Model model){
+//        List<Category> catlist = categoryRepository.findAll();
+//        model.addAttribute("catlist", catlist);
+//        return "searchProducts";
+//    }
+//
+//    @RequestMapping("/choosen")
+//    public String productsFromCategories(@ModelAttribute Category choosen, Model model){
+//        List<Product> pList = productRepository.findAllByCategories(choosen);
+//        model.addAttribute("list", pList);
+//        return "productsList";
+//    }
+//
+//    @RequestMapping("/query")
+//    public String productsByQuery(@ModelAttribute String squery, Model model){
+//        List<Product> qList = productRepository.findProductsByNameIsLike(squery);
+//        model.addAttribute("List", qList);
+//        return "productsList";
+//    }
+//    @RequestMapping(value = "/addmeal", method = RequestMethod.GET)
+//    public String addMeal(Model model){
+//        Meal actMeal = new Meal();
+//        actMeal.setDate( new Timestamp(System.currentTimeMillis()));
+//        model.addAttribute("actMeal", actMeal);
+//        return "addMeal";
+//    }
+//
+//    @RequestMapping(value = "/addmeal", method = RequestMethod.POST)
+//    public String added(@ModelAttribute Meal actMeal, Model model){
+//        actMeal.setDate( new Timestamp(System.currentTimeMillis()));
+//        model.addAttribute("actMeal", actMeal);
+//        return "addMeal";
+//    }
+//
+//    @RequestMapping("/addtomeallist")
+//    public String addPMToMeal(@ModelAttribute ProductMeal actProductMeal, @RequestParam Product product,
+//                              @ModelAttribute Meal actMeal, @ModelAttribute List<ProductMeal> actProductsList,
+//                              Model model){
+//        actProductMeal.setMeal_id(actMeal.getId());
+//        actProductMeal.setProduct(product);
+//        actProductsList.add(actProductMeal);
+//        model.addAttribute("actProductMeal", actProductMeal);
+//        return "productList";
+//    }
+//
+//    @RequestMapping("/mealshistory")
+//    public String mealslist(Model model){
+//        model.addAttribute("mealshistory", mealRepository.findAll());
+//        return "mealshistory";
+//    }
 }

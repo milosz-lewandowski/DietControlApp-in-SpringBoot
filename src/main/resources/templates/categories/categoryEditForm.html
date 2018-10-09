@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>title</title>
+    <meta http-equiv="Content-Type"	content="text/html;	charset=UTF-8"	/>
+</head>
+<body>
+<div th:replace="fragments/menu :: panelmenu"></div>
+<div th:replace="fragments/mealMenu :: amealmenu"></div>
+<div style="clear: both"></div>
+<h2>Change this category name:</h2>
+<form th:action="@{/category/edit}" th:object="${category}" method="post">
+    <p>name: <input type="text" th:default="*{name}" th:field="*{name}"></p>
+    <p><input	type="submit"	value="Submit"	/></p>
+</form>
+</body>
+</html>

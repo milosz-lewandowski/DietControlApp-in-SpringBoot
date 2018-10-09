@@ -6,6 +6,8 @@ import pl.dietapp.demo.entity.Category;
 import pl.dietapp.demo.repositories.CategoryRepository;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CategoriesServiceImpl implements CategoriesService {
 
@@ -15,6 +17,11 @@ public class CategoriesServiceImpl implements CategoriesService {
     @Override
     public List<Category> getCategories() {
         return categoryRepository.findAll();
+    }
+
+    @Override
+    public Optional<Category> getCategoryById(int id) {
+        return categoryRepository.findById(id);
     }
 
     @Override

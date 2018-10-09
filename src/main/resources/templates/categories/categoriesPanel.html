@@ -16,8 +16,6 @@
             <!--<td th:href="delate a category"></td>-->
         </tr>
     </table>
-<form th:action="@{/category/panel}" th:object="${newCategory}" th:method="post">
-    <p>enter a new category name<input th:type="text"></p>
-</form>
+    <a th:href="@{/category/add}" th:text="'Add new Category'"></a><br>
 </body>
 </html>
