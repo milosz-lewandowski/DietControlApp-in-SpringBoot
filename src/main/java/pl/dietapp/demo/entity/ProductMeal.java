@@ -1,10 +1,11 @@
 package pl.dietapp.demo.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "product_meal")
-public class ProductMeal {
+public class ProductMeal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -14,15 +15,15 @@ public class ProductMeal {
     private int weight;
 
 
+    public ProductMeal() {
+    }
+
     public Product getProduct() {
         return product;
     }
 
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public ProductMeal() {
     }
 
     public int getId() {

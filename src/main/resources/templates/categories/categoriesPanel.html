@@ -8,6 +8,7 @@
     <div th:replace="fragments/menu :: panelmenu"></div>
     <div th:replace="fragments/mealMenu :: amealmenu"></div>
     <div style="clear: both"></div>
+    <a th:href="@{/category/add}" th:text="'Add new Category'"></a><br>
     <table>
         <tr th:each="cat: ${categoriesList}">
             <td th:text="${cat.getId()}"></td>
@@ -16,6 +17,5 @@
             <!--<td th:href="delate a category"></td>-->
         </tr>
     </table>
-    <a th:href="@{/category/add}" th:text="'Add new Category'"></a><br>
 </body>
 </html>

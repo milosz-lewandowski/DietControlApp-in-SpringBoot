@@ -1,18 +1,21 @@
 package pl.dietapp.demo.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import pl.dietapp.demo.entity.Category;
-import pl.dietapp.demo.services.CategoriesServiceImpl;
+import pl.dietapp.demo.services.CategoriesService;
 
 @Controller
 @RequestMapping(value = "/category")
+@RequiredArgsConstructor
 public class CategoryController {
 
-    @Autowired
-    CategoriesServiceImpl categoriesService;
+    private final CategoriesService categoriesService;
 
     @RequestMapping(value = "/panel", method = RequestMethod.GET)
     public String categoryPanel(Model model){
@@ -25,6 +28,8 @@ public class CategoryController {
         model.addAttribute("category", new Category());
         return "categories/categoryAddForm.html";
     }
+
+
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addedCategory(@ModelAttribute Category category){

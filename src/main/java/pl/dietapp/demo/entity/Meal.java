@@ -1,18 +1,23 @@
 package pl.dietapp.demo.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
 @Table(name = "meals")
-public class Meal {
+public class Meal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     @ManyToMany
     private List<ProductMeal> productMeals;
+    private Timestamp date;
+
+    public Meal() {
+    }
 
     public Timestamp getDate() {
         return date;
@@ -20,10 +25,6 @@ public class Meal {
 
     public void setDate(Timestamp date) {
         this.date = date;
-    }
-
-    private Timestamp date;
-    public Meal() {
     }
 
     public int getId() {
